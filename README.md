@@ -1,39 +1,29 @@
-# Nginx, Prometheus and Grafana with docker-compose!
+# Nginx + Prometheus (Nginx Exporter) + Grafana
 
-It's a simple example, template of usage stack Nginx, Prometheus (Node Exporter, Nginx Exporter, Cadvisor) and Grafana.
-
-### I. What will you get here?
-1. Nginx with https - selfsigned certificate.
-2. Prometheus for storing metrics. 
-3. Prometheus-node-exporter for monitoring your operating system.
-4. Prometheus-nginx-exporter for monitoring your nginx.
-5. Cadvisor for monitoring your containers.
-6. Grafana to visualize data. 
-
-### II. How to run it?
-1. Clone repository to your working directory:
-<pre>https://github.com/rvva/nginx-prometheus-grafana/</pre>
-2. Create Prometheus and Grafana data directory:
-<pre>mkdir -p nginx-prometheus-grafana/{prometheus,grafana}/data
-mkdir nginx-prometheus-grafana/nginx/log</pre>
-3. Change files permissions:
+### I. Запуск.
+1. Скопировать `prometheus/prometheus.yml`, `.env` и `docker-compose.yml` в рабочую директорию
+2. Создать директории для данных Prometheus и Grafana:
+<pre>mkdir prometheus/data
+mkdir grafana/data</pre>
+3. Изменить права:
 <pre>
-sudo chown 472:0 -Rc nginx-prometheus-grafana/grafana/data
-sudo chown -Rc 65534:65534 nginx-prometheus-grafana/prometheus/data
+sudo chown 472:0 -Rc grafana/data
+sudo chown -Rc 65534:65534 prometheus/data
 </pre>
-4. Configure .env file 
+4. Настроить .env 
 
-Modify <i>GF_SECURITY_ADMIN</i> parameters to set your personal Grafana credentials. 
+Указать логин и пароль для доступа в Grafana в <i>GF_SECURITY_ADMIN</i>. 
 
-5. Run it!
+5. Запуск
 <pre>
 docker-compose up -d
 </pre>
 
-### III. Post installation steps
-1. Login into Grafana localhost:3000 and add Data Source -> Prometheus. 
-2. As url address use `http://prometheus:9090` 
-3. Add dashboards. I recommend you:
-* for nginx: https://grafana.com/grafana/dashboards/12708
-* for cadvisor: https://grafana.com/grafana/dashboards/13946
-* for node: https://grafana.com/grafana/dashboards/1860
+### II. После запуска.
+1. Зайти в Grafana на localhost:3000 и добавить Data Source -> Prometheus. 
+2. В качестве адреса `Prometheus server URL` использовать `http://prometheus:9090` 
+3. Добавить панели. Как вариант:
+    3. 1. Копировать ID панели: https://grafana.com/grafana/dashboards/12708
+    3. 2. На Grafana Меню -> Dashboards -> New -> Import
+    3. 3. Вставляем скопированный ID в `Import via grafana.com` 
+

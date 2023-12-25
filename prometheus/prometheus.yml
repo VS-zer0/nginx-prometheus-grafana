@@ -1,28 +1,22 @@
-# source https://prometheus.io/docs/prometheus/latest/getting_started/
+# https://prometheus.io/docs/prometheus/latest/getting_started/
 
 global:
-  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+  scrape_interval:     15s # По умолчанию парсинг каждые 15 секунд.
 
-  # Attach these labels to any time series or alerts when communicating with
-  # external systems (federation, remote storage, Alertmanager).
+  # Метка для внешних систем (federation, remote storage, Alertmanager).
   external_labels:
     monitor: 'codelab-monitor'
 
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
+# Конфигурация с одним эндпоинтом - самим Prometheus
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  # Добавляется как метка `job=<job_name>` для всех собранных временных рядов.
   - job_name: 'prometheus'
 
-    # Override the global default and scrape targets from this job every 5 seconds.
+    # Парсинг каждые 5 секунд.
     scrape_interval: 5s
 
     static_configs:
     # prometheus
       - targets: ['localhost:9090']
-    # node-exporter
-      - targets: ['prometheus-node-exporter:9100']
-    # cadvisor
-      - targets: ['cadvisor:8080']
     # prometheus-nginx-exporter
       - targets: ['nginx-prometheus-exporter:9113']
