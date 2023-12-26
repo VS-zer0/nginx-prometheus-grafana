@@ -14,7 +14,7 @@ sudo chown -Rc 65534:65534 prometheus/data
    
 Указать логин и пароль для доступа в Grafana в <i>GF_SECURITY_ADMIN</i>. 
 
-5. Заменить сервис `nginx` в `docker-compose.yml`, а также конфигурацию nginx на необходимую для использования
+5. Заменить сервис `nginx` в `docker-compose.yml`, а также минимальную конфигурацию nginx на актуальную
 6. Добавить в свою конфигурацию nginx путь `/stub_status`
 7. Запуск
 <pre>
