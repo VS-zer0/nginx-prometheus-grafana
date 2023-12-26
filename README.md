@@ -25,7 +25,8 @@ docker-compose up -d
 1. Зайти в Grafana на localhost:3000 и добавить Data Source -> Prometheus. 
 2. В качестве адреса `Prometheus server URL` использовать `http://prometheus:9090` 
 3. Добавить панели. Как вариант:
-    3. 1. Копировать ID панели: https://grafana.com/grafana/dashboards/12708
-    3. 2. На Grafana Меню -> Dashboards -> New -> Import
-    3. 3. Вставляем скопированный ID в `Import via grafana.com` 
+    
+   1) Копировать ID панели: https://grafana.com/grafana/dashboards/12708
+   2) На Grafana Меню -> Dashboards -> New -> Import
+   3) Вставляем скопированный ID в `Import via grafana.com` 
 
