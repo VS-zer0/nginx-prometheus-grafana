@@ -20,3 +20,5 @@ scrape_configs:
       - targets: ['localhost:9090']
     # prometheus-nginx-exporter
       - targets: ['nginx-prometheus-exporter:9113']
+    # nginxlog-exporter
+      - targets: ['nginxlog-exporter:4040']
