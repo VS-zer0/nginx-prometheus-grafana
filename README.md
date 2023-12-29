@@ -29,3 +29,5 @@ docker-compose up -d
    1) В Grafana: Меню -> Dashboards -> New -> Import
    2) Перетаскиваем `Nginx-nginxlog-exporter.json` в окно `Upload dashboard JSON file` 
 
+# Credits
+- [rvva](https://github.com/rvva/nginx-prometheus-grafana), MIT license
