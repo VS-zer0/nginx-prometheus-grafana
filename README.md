@@ -1,7 +1,7 @@
 # Nginx + Prometheus (Nginx Exporter) + Grafana
 
 ### I. Запуск.
-1. Скопировать `prometheus/prometheus.yml`, `.env` и `docker-compose.yml` в рабочую директорию
+1. Скопировать `prometheus/prometheus.yml`, `nginxlog_exporter/nginxlog_exporter.yml`, `.env` и `docker-compose.yml` в рабочую директорию
 2. Создать директории для данных Prometheus и Grafana:
 <pre>mkdir prometheus/data
 mkdir grafana/data</pre>
@@ -14,8 +14,8 @@ sudo chown -Rc 65534:65534 prometheus/data
    
 Указать логин и пароль для доступа в Grafana в <i>GF_SECURITY_ADMIN</i>. 
 
-5. Заменить сервис `nginx` в `docker-compose.yml`, а также минимальную конфигурацию nginx на актуальную
-6. Добавить в свою конфигурацию nginx путь `/stub_status`
+5. Заменить сервис `nginx` в `docker-compose.yml`, а также минимальную конфигурацию nginx на используемую в проекте
+6. Добавить в свою конфигурацию nginx новый формат логов и путь `/stub_status`
 7. Запуск
 <pre>
 docker-compose up -d
@@ -26,7 +26,6 @@ docker-compose up -d
 2. В качестве адреса `Prometheus server URL` использовать `http://prometheus:9090` 
 3. Добавить панели. Как вариант:
     
-   1) Копировать ID панели: https://grafana.com/grafana/dashboards/12708
-   2) На Grafana Меню -> Dashboards -> New -> Import
-   3) Вставляем скопированный ID в `Import via grafana.com` 
+   1) В Grafana: Меню -> Dashboards -> New -> Import
+   2) Перетаскиваем `Nginx-nginxlog-exporter.json` в окно `Upload dashboard JSON file` 
 
