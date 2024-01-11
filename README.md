@@ -1,4 +1,4 @@
-# Nginx + Prometheus (Nginx Exporter) + Grafana
+# Nginx + Prometheus (Nginx Exporter + Nginxlog) + Grafana
 
 ### I. Запуск.
 1. Скопировать `prometheus/prometheus.yml`, `nginxlog_exporter/nginxlog_exporter.yml`, `.env` и `docker-compose.yml` в рабочую директорию
